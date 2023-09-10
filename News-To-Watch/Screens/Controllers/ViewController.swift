@@ -50,6 +50,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "News"
+        navigationController?.navigationBar.prefersLargeTitles = true
         
         view.addSubview(tableView)
         view.addSubview(noConnectionLabel)
