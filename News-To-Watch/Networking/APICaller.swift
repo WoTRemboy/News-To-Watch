@@ -75,7 +75,6 @@ final class APICaller {
                 }
             }
         }
-        
         task.resume()
         DispatchQueue.global().asyncAfter(deadline: .now() + .seconds(4)) {
             self.isPaginating = false

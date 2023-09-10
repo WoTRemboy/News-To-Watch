@@ -77,15 +77,19 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     private func noConnectionLabelSetup() {
-        noConnectionLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        noConnectionLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -20).isActive = true
+        NSLayoutConstraint.activate([
+            noConnectionLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            noConnectionLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -20)
+        ])
     }
     
     private func updateButtonSetup() {
-        updateButton.topAnchor.constraint(equalTo: noConnectionLabel.topAnchor, constant: 40).isActive = true
-        updateButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        updateButton.widthAnchor.constraint(equalToConstant: 150).isActive = true
-        updateButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        NSLayoutConstraint.activate([
+            updateButton.topAnchor.constraint(equalTo: noConnectionLabel.topAnchor, constant: 40),
+            updateButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            updateButton.widthAnchor.constraint(equalToConstant: 150),
+            updateButton.heightAnchor.constraint(equalToConstant: 50)
+        ])
     }
     
     private func internetCheck() {
@@ -136,7 +140,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 self?.viewModels = articles.compactMap({
                     TableViewCellModel(title: $0.title, subtitle: $0.description ?? "No description", imageURL: URL(string: $0.urlToImage ?? ""))
                 })
-                
                 DispatchQueue.main.async {
                     self?.tableView.reloadData()
                 }
@@ -154,7 +157,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 self?.viewModels += articles.compactMap({
                     TableViewCellModel(title: $0.title, subtitle: $0.description ?? "No description", imageURL: URL(string: $0.urlToImage ?? ""))
                 })
-                
                 DispatchQueue.main.async {
                     self?.tableView.reloadData()
                 }
@@ -222,12 +224,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let position = scrollView.contentOffset.y
-        
         if position > (tableView.contentSize.height-scrollView.frame.size.height) {
             guard !APICaller.called.isPaginating else {
                 return
             }
-            
             fetchNews()
         }
     }

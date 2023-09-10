@@ -68,7 +68,6 @@
 				63976F3E2AADC38400B74575 /* Screens */,
 				63976F472AADC4FE00B74575 /* User Settings */,
 				63976F462AADC41B00B74575 /* Networking */,
-				63976F442AADC3DE00B74575 /* Extentions */,
 				63976F452AADC3F200B74575 /* Supporting Files */,
 				6393915229C26B45006BD679 /* Info.plist */,
 			);
@@ -118,13 +117,6 @@
 				6393916029C2721A006BD679 /* WebKitPage.swift */,
 			);
 			path = Controllers;
-			sourceTree = "<group>";
-		};
-		63976F442AADC3DE00B74575 /* Extentions */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Extentions;
 			sourceTree = "<group>";
 		};
 		63976F452AADC3F200B74575 /* Supporting Files */ = {

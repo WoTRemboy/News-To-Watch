@@ -77,7 +77,6 @@ class TableViewCell: UITableViewCell {
         
         titleLabelSetup()
         counterLabelSetup()
-        
         newsImageViewSetup()
     }
     
@@ -85,30 +84,29 @@ class TableViewCell: UITableViewCell {
         fatalError()
     }
     
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        
-        
-    }
-    
     private func titleLabelSetup() {
-        titleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20).isActive = true
-        titleLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 20).isActive = true
-        titleLabel.widthAnchor.constraint(equalTo: contentView.widthAnchor, constant: -190).isActive = true
+        NSLayoutConstraint.activate([
+            titleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
+            titleLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 20),
+            titleLabel.widthAnchor.constraint(equalTo: contentView.widthAnchor, constant: -190)
+        ])
     }
     
     private func counterLabelSetup() {
-        counterLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20).isActive = true
-        counterLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -10).isActive = true
-        counterLabel.widthAnchor.constraint(equalTo: contentView.widthAnchor, constant: -190).isActive = true
-        
+        NSLayoutConstraint.activate([
+            counterLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
+            counterLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -10),
+            counterLabel.widthAnchor.constraint(equalTo: contentView.widthAnchor, constant: -190)
+        ])
     }
     
     private func newsImageViewSetup() {
-        newsImageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20).isActive = true
-        newsImageView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor).isActive = true
-        newsImageView.leadingAnchor.constraint(equalTo: titleLabel.trailingAnchor, constant: 20).isActive = true
-        newsImageView.heightAnchor.constraint(equalToConstant: 120).isActive = true
+        NSLayoutConstraint.activate([
+            newsImageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20),
+            newsImageView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
+            newsImageView.leadingAnchor.constraint(equalTo: titleLabel.trailingAnchor, constant: 20),
+            newsImageView.heightAnchor.constraint(equalToConstant: 120)
+        ])
     }
     
     override func prepareForReuse() {
@@ -129,12 +127,10 @@ class TableViewCell: UITableViewCell {
         
         monitor.pathUpdateHandler = { path in
             if path.status == .satisfied {
-                
                 DispatchQueue.main.async {
                     self.titleLabel.text = viewModel.title
                 }
             } else {
-                
                 DispatchQueue.main.async {
                     self.titleLabel.text = UserSettings.userModel.title
                 }

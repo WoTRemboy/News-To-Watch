@@ -131,31 +131,39 @@ class SecondViewController: UIViewController {
     }
     
     private func articleTitleSetup() {
-        articleTitle.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 30).isActive = true
-        articleTitle.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -30).isActive = true
-        articleTitle.topAnchor.constraint(equalTo: view.topAnchor, constant: view.frame.height/9).isActive = true
+        NSLayoutConstraint.activate([
+            articleTitle.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 30),
+            articleTitle.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -30),
+            articleTitle.topAnchor.constraint(equalTo: view.topAnchor, constant: view.frame.height/9)
+        ])
         articleTitle.text = titleText
     }
     
     private func authorTitleSetup() {
-        authorTitle.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10).isActive = true
-        authorTitle.trailingAnchor.constraint(equalTo: view.centerXAnchor, constant: -20).isActive = true
-        authorTitle.topAnchor.constraint(equalTo: articleTitle.bottomAnchor, constant: 10).isActive = true
+        NSLayoutConstraint.activate([
+            authorTitle.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
+            authorTitle.trailingAnchor.constraint(equalTo: view.centerXAnchor, constant: -20),
+            authorTitle.topAnchor.constraint(equalTo: articleTitle.bottomAnchor, constant: 10)
+        ])
         authorTitle.text = author
     }
     
     private func articleDateSetup() {
-        articleDate.leadingAnchor.constraint(equalTo: view.centerXAnchor, constant: 10).isActive = true
-        articleDate.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10).isActive = true
-        articleDate.topAnchor.constraint(equalTo: articleTitle.bottomAnchor, constant: 10).isActive = true
+        NSLayoutConstraint.activate([
+            articleDate.leadingAnchor.constraint(equalTo: view.centerXAnchor, constant: 10),
+            articleDate.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10),
+            articleDate.topAnchor.constraint(equalTo: articleTitle.bottomAnchor, constant: 10)
+        ])
         articleDate.text = dateConvert(date: date)
     }
     
     private func articleImageSetup() {
-        articleImage.topAnchor.constraint(equalTo: articleDate.bottomAnchor, constant: 20).isActive = true
-        articleImage.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10).isActive = true
-        articleImage.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10).isActive = true
-        articleImage.heightAnchor.constraint(equalToConstant: 200).isActive = true
+        NSLayoutConstraint.activate([
+            articleImage.topAnchor.constraint(equalTo: articleDate.bottomAnchor, constant: 20),
+            articleImage.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
+            articleImage.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10),
+            articleImage.heightAnchor.constraint(equalToConstant: 200)
+        ])
         
         let url = (URL(string: imageURL) ?? URL(string: "https://cdn.nerdschalk.com/wp-content/uploads/2021/10/unsupported-logo-759x427.png?width=800"))!
         
@@ -165,17 +173,21 @@ class SecondViewController: UIViewController {
     }
     
     private func articleTextSetup() {
-        articleText.topAnchor.constraint(equalTo: articleImage.bottomAnchor, constant: 20).isActive = true
-        articleText.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
-        articleText.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
+        NSLayoutConstraint.activate([
+            articleText.topAnchor.constraint(equalTo: articleImage.bottomAnchor, constant: 20),
+            articleText.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+            articleText.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20)
+        ])
         articleText.text = textContent
     }
     
     private func buttonSetup() {
-        buttonMore.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        buttonMore.topAnchor.constraint(equalTo: articleText.bottomAnchor, constant: 20).isActive = true
-        buttonMore.widthAnchor.constraint(equalToConstant: 150).isActive = true
-        buttonMore.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        NSLayoutConstraint.activate([
+            buttonMore.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            buttonMore.topAnchor.constraint(equalTo: articleText.bottomAnchor, constant: 20),
+            buttonMore.widthAnchor.constraint(equalToConstant: 150),
+            buttonMore.heightAnchor.constraint(equalToConstant: 50)
+        ])
     }
     
     private func dateConvert(date: String) -> String {
@@ -193,7 +205,6 @@ class SecondViewController: UIViewController {
         dateFormatter.dateFormat = "HH:mm  dd.MM.yyyy"
         
         let stringDate = dateFormatter.string(from: finalDate)
-        
         return stringDate
     }
     
@@ -202,13 +213,11 @@ class SecondViewController: UIViewController {
         
         monitor.pathUpdateHandler = { path in
             if path.status == .satisfied {
-                
                 DispatchQueue.main.async {
                     self.noConnectionLabel.isHidden = true
                     self.buttonMore.isEnabled = true
                 }
             } else {
-                
                 DispatchQueue.main.async {
                     self.noConnectionLabel.isHidden = false
                     self.buttonMore.isEnabled = false
@@ -243,7 +252,6 @@ class SecondViewController: UIViewController {
                 
                 guard let image = UIImage(data: data!) else { return }
                 self?.imageCache.setObject(image, forKey: url.absoluteString as NSString)
-                
                 DispatchQueue.main.async {
                     completion(image)
                 }
