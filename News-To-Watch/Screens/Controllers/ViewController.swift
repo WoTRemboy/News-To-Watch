@@ -35,7 +35,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         let button = UIButton()
         button.setTitle("Update", for: .normal)
         button.backgroundColor = .systemRed
-        button.addTarget(self, action: #selector(buttonClicked(sender: )), for: .touchUpInside)
+        button.addTarget(nil, action: #selector(buttonClicked(sender: )), for: .touchUpInside)
         button.layer.cornerRadius = 15
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
@@ -43,7 +43,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     private let refreshControl: UIRefreshControl = {
         let refresh = UIRefreshControl()
-        refresh.addTarget(self, action: #selector(refreshAction(sender: )), for: .allEvents)
+        refresh.addTarget(nil, action: #selector(refreshAction(sender: )), for: .allEvents)
         return refresh
     }()
 

@@ -16,6 +16,7 @@
 		6393915F29C271F1006BD679 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6393915E29C271F1006BD679 /* TableViewCell.swift */; };
 		6393916129C2721A006BD679 /* WebKitPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6393916029C2721A006BD679 /* WebKitPage.swift */; };
 		6393916329C2723C006BD679 /* UserSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6393916229C2723C006BD679 /* UserSettings.swift */; };
+		63976F432AADC3B400B74575 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63976F422AADC3B400B74575 /* Model.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		6393915E29C271F1006BD679 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		6393916029C2721A006BD679 /* WebKitPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebKitPage.swift; sourceTree = "<group>"; };
 		6393916229C2723C006BD679 /* UserSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettings.swift; sourceTree = "<group>"; };
+		63976F422AADC3B400B74575 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,18 +64,91 @@
 		6393914329C26B44006BD679 /* News-To-Watch */ = {
 			isa = PBXGroup;
 			children = (
-				6393914429C26B44006BD679 /* AppDelegate.swift */,
-				6393914629C26B44006BD679 /* SceneDelegate.swift */,
-				6393915A29C2703E006BD679 /* APICaller.swift */,
-				6393914829C26B44006BD679 /* ViewController.swift */,
-				6393915C29C271D7006BD679 /* SecondViewController.swift */,
-				6393915E29C271F1006BD679 /* TableViewCell.swift */,
-				6393916029C2721A006BD679 /* WebKitPage.swift */,
-				6393916229C2723C006BD679 /* UserSettings.swift */,
-				6393914D29C26B45006BD679 /* Assets.xcassets */,
+				63976F3D2AADC36000B74575 /* Application */,
+				63976F3E2AADC38400B74575 /* Screens */,
+				63976F472AADC4FE00B74575 /* User Settings */,
+				63976F462AADC41B00B74575 /* Networking */,
+				63976F442AADC3DE00B74575 /* Extentions */,
+				63976F452AADC3F200B74575 /* Supporting Files */,
 				6393915229C26B45006BD679 /* Info.plist */,
 			);
 			path = "News-To-Watch";
+			sourceTree = "<group>";
+		};
+		63976F3D2AADC36000B74575 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				6393914429C26B44006BD679 /* AppDelegate.swift */,
+				6393914629C26B44006BD679 /* SceneDelegate.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		63976F3E2AADC38400B74575 /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				63976F3F2AADC38F00B74575 /* Model */,
+				63976F402AADC39700B74575 /* Views */,
+				63976F412AADC39F00B74575 /* Controllers */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		63976F3F2AADC38F00B74575 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				63976F422AADC3B400B74575 /* Model.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		63976F402AADC39700B74575 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				6393915E29C271F1006BD679 /* TableViewCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		63976F412AADC39F00B74575 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				6393914829C26B44006BD679 /* ViewController.swift */,
+				6393915C29C271D7006BD679 /* SecondViewController.swift */,
+				6393916029C2721A006BD679 /* WebKitPage.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		63976F442AADC3DE00B74575 /* Extentions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extentions;
+			sourceTree = "<group>";
+		};
+		63976F452AADC3F200B74575 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				6393914D29C26B45006BD679 /* Assets.xcassets */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		63976F462AADC41B00B74575 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				6393915A29C2703E006BD679 /* APICaller.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		63976F472AADC4FE00B74575 /* User Settings */ = {
+			isa = PBXGroup;
+			children = (
+				6393916229C2723C006BD679 /* UserSettings.swift */,
+			);
+			path = "User Settings";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -145,6 +220,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				63976F432AADC3B400B74575 /* Model.swift in Sources */,
 				6393916129C2721A006BD679 /* WebKitPage.swift in Sources */,
 				6393914929C26B44006BD679 /* ViewController.swift in Sources */,
 				6393914529C26B44006BD679 /* AppDelegate.swift in Sources */,

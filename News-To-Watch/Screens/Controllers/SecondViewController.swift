@@ -90,7 +90,7 @@ class SecondViewController: UIViewController {
         let button = UIButton()
         button.setTitle("Open full article", for: .normal)
         button.backgroundColor = .systemRed
-        button.addTarget(self, action: #selector(buttonClicked(sender: )), for: .touchUpInside)
+        button.addTarget(nil, action: #selector(buttonClicked(sender: )), for: .touchUpInside)
         button.layer.cornerRadius = 15
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
